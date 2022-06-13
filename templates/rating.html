@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/282/282120.png"> 
+  <meta name="theme-color" content="#daa37f"> 
+  <title>Music Recommendation System </title> 
+  <style>
+   *{
+   box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;    
+}
+  body {
+ margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+  -webkit-font-smoothing: antialiased;
+  background: rgba( 71, 147, 227, 1);
+}
+  .container {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+.navigation {
+  width: 100%;
+  height: 70px;
+  padding: 15px;
+  background-image: linear-gradient(-90deg, #fff, #eee);
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+  webkittransition: all .8s; /* Safari prior 6.1 */
+  transition: all .8s;
+  
+}
+.logo {
+  color: #000000;
+  width: 20%;
+  float: left;
+  line-height: 40px;
+}
+.navigation-links {
+  text-align: right;
+  padding: 0;
+}
+.navigation-links li {
+  color: #000000;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  -webkit-transition: all .8s; /* Safari prior 6.1 */
+  transition: all .8s;
+}
+
+.navigation-links li.active {
+  background-color: rgba(  83, 173, 203, .3);
+}
+
+.navigation-links li:hover {
+  background-color: rgba(  83, 173, 203, 1);
+  color: #fff;
+  cursor: pointer;
+}
+.icon {
+  display: none;
+  padding: 20px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  .logo {
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  .navigation-links li {display: none;}
+  .navigation-links a.icon {
+    float: right;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 40px;
+  }
+  .navigation.responsive .navigation-links a.icon {
+    background-color: rgba(  83, 173, 203, 1);
+    color: #fff;
+    cursor: pointer;
+    
+  }
+  
+  .navigation.responsive {
+    position: relative;
+    height: 200px;
+  }
+  .navigation.responsive .navigation-links li {
+    float: none;
+    display: block;
+    text-align: left;
+      -webkit-transition: all .8s; /* Safari prior 6.1 */
+  transition: all .8s;
+  }
+}
+
+
+header h6 {
+font-size: 20px;
+  font-weight: 600;
+  color: #fdfdfe;
+  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,0px 0px 20px #b393d3;
+}
+header h1 {
+  font-size: 50px;
+  font-weight: 600;
+  color: #fdfdfe;
+  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,0px 0px 20px #b393d3;
+}
+ .b1 {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  align: center;
+}
+h2{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+}
+
+/* Table Styles */
+
+.table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
+        float: left;
+    }
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
+    </style> 
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+ </head> 
+ <body> 
+  <script type="text/javascript">
+    function responsiveMenu() {
+  var x = document.getElementById("navigation");
+  if (x.className === "navigation") {
+    x.className += " responsive";
+  } else {
+    x.className = "navigation";
+  }
+}
+$(document).ready(function(){
+    $("form").submit(function(){
+ if ($('input:checkbox').filter(':checked').length < 2){
+        alert("Please Check at least two Check Box");
+ return false;
+ }
+    });
+});
+    </script> 
+  <nav class="navigation" id="navigation"> 
+   <div class="container"> 
+    <div class="logo">
+      Menu 
+    </div> 
+    <ul class="navigation-links"> 
+     <li>Genre</li> 
+     <li></li> 
+     <li class="active">Rating</li> 
+      <a href="{{url_for('logout')}}" onclick="responsiveMenu()"><li>Logout</li></a> 
+    </ul> 
+   </div> 
+  </nav> 
+  <br> 
+  <figure class="text-center"> 
+   <blockquote class="blockquote"> 
+    <header> 
+     <h1>Music Recommendation System</h1> 
+    </header> 
+   </blockquote> 
+   <figcaption class="blockquote-footer"> 
+    <header> 
+     <h6> Project by <cite title="Source Title">Shrestha Gupta and Sourjobraato Banerjee</cite> </h6> 
+    </header> 
+    <br> 
+    <br> 
+    <br> 
+    <br> 
+   </figcaption> 
+  </figure> 
+  <br> 
+  <form action="/result" method="POST" id="form"> 
+   <br> 
+   <br> 
+   <div id="result_div"> 
+    <h2>Rate the songs below so that we know you better ...</h2> 
+    <div class="table-wrapper"> 
+     <table class="fl-table">
+
+      <thead> 
+       <tr> 
+        <th>Song-Name</th> 
+        <th>Artist-Name</th> 
+        <th>Year</th> 
+        <th>Rate</th> 
+       </tr> 
+      </thead> 
+      <tbody>
+      {% for i in range(result['songs_length']) %}
+       <tr>
+        <td><a href="{{result['songs'][i]['External_Link']}}">{{result['songs'][i]['name']}}</a></td>
+        <td>{{result['songs'][i]['artist_name']}}</td>
+        <td>{{result['songs'][i]['year']}}</td>
+        <td>
+         <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" value="{{result['songs'][i]['uri']}}" id="flexSwitchCheckDefault" name="{{i}}">
+         </div> </td>
+       </tr>
+      {% endfor %}
+      </tbody>
+     </table> 
+    </div> 
+    <div align="center"> <button class="b1" type="submit">Recommend</button> 
+    </div> 
+   </div> 
+  </form> 
+ </body>
+</html>
