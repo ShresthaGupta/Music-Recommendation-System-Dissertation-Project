@@ -39,4 +39,4 @@ Command:
 pip install -r requirements.txt
 
 Step 2: Run main.py file 
-
+#it's a flask app
