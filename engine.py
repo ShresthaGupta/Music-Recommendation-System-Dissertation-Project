@@ -101,7 +101,4 @@ def recommend_songs(song_list, spotify_data, n_songs=10):
 def catch_recommended(song_list):
     return recommend_songs(song_list,data)
 
-song_list = [{'name': '#SELFIE', 'artist_name': 'The Chainsmokers', 'year': 2014, 'External_Link': 'https://open.spotify.com/track/1HOlb9rdNOmy9b1Fakicjo', 'uri': '1HOlb9rdNOmy9b1Fakicjo'}, {'name': 'This Feeling', 'artist_name': 'The Chainsmokers', 'year': 2018, 'External_Link': 'https://open.spotify.com/track/4NBTZtAt1F13VvlSKe6KTl', 'uri': '4NBTZtAt1F13VvlSKe6KTl'}, {'name': 'Kanye', 'artist_name': 'The Chainsmokers', 'year': 2014, 'External_Link': 'https://open.spotify.com/track/5brMyscUnQg14hMriS91ks', 'uri': '5brMyscUnQg14hMriS91ks'}, {'name': 'I Love U', 'artist_name': 'The Chainsmokers', 'year': 2022, 'External_Link': 'https://open.spotify.com/track/3MJE5DoCeAWP7cDbW9Hgm5', 'uri': '3MJE5DoCeAWP7cDbW9Hgm5'}, {'name': 'Takeaway', 'artist_name': 'The Chainsmokers', 'year': 2019, 'External_Link': 'https://open.spotify.com/track/3g0mEQx3NTanacLseoP0Gw', 'uri': '3g0mEQx3NTanacLseoP0Gw'}, {'name': 'Call You Mine', 'artist_name': 'The Chainsmokers', 'year': 2019, 'External_Link': 'https://open.spotify.com/track/2oejEp50ZzPuQTQ6v54Evp', 'uri': '2oejEp50ZzPuQTQ6v54Evp'}, {'name': "Don't Let Me Down", 'artist_name': 'The Chainsmokers', 'year': 2016, 'External_Link': 'https://open.spotify.com/track/1i1fxkWeaMmKEB4T7zqbzK', 'uri': '1i1fxkWeaMmKEB4T7zqbzK'}]
-#print(data)
-print(catch_recommended(song_list))
 
