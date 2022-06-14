@@ -1,6 +1,3 @@
-# from check import data
-
-
 
 from flask import Flask, render_template, url_for, redirect, session, request,flash
 from flask_sqlalchemy import SQLAlchemy
@@ -9,8 +6,7 @@ from sqlalchemy.orm import backref
 from werkzeug.security import generate_password_hash, check_password_hash
 from engine import catch_recommended
 
-
-                                                       
+                                                      
 
 from cold_start import get_artists, get_tracks, more_songs,uri_data,range_years
 
