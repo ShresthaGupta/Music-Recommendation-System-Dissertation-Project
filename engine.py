@@ -1,11 +1,11 @@
 import numpy as np
 import pandas as pd
 
-import spotipy as sp
-from spotipy.oauth2 import SpotifyClientCredentials
 
-spo = sp.Spotify(client_credentials_manager=SpotifyClientCredentials(client_id="9eb499b93cb44edebec7c7391b421341",
-client_secret="03e2d9e4eb0746f98a4f7abddf2008b7"))
+
+
+
+
 
 
 from sklearn.cluster import KMeans
