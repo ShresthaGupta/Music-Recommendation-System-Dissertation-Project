@@ -93,7 +93,7 @@ def uri_data(uri_list):
         a = data.loc[data['uri'] == i]
         listed = a.values.tolist()
         #print(listed[0][1])
-        dat = {'External_Link':listed[0][2],'artist':listed[0][6],'name': listed[0][0], 'year': listed[0][1],'uri':listed[0][3]}
+        dat = {'url':listed[0][2],'artist':listed[0][6],'name': listed[0][0], 'year': listed[0][1],'uri':listed[0][3]}
         songs_list.append(dat)
     return songs_list
 
