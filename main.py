@@ -1,17 +1,17 @@
 # from check import data
-from typing import Dict, Any
 
-import spotipy
+
+
 from flask import Flask, render_template, url_for, redirect, session, request,flash
 from flask_sqlalchemy import SQLAlchemy
-from spotipy.oauth2 import SpotifyClientCredentials
+
 from sqlalchemy.orm import backref
 from werkzeug.security import generate_password_hash, check_password_hash
-from engine import recommend_songs, data,catch_recommended
+from engine import catch_recommended
 
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="9eb499b93cb44edebec7c7391b421341",
-                                                           client_secret="03e2d9e4eb0746f98a4f7abddf2008b7"))
-import datetime
+
+                                                       
+
 from cold_start import get_artists, get_tracks, more_songs,uri_data,range_years
 
 # global variables
