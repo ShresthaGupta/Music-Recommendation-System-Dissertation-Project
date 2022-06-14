@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/282/282120.png"/>
+<meta name="theme-color" content="#daa37f">
+  <title>Music Recommendation System </title>
+</head>
+<body bgcolor="#ADD8E6">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand">Music Recommender Web App</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">Get Your Genre</a>
+        </li>
+        </ul>
+        </div>
+    </div>
+    </div>
+</nav>
+
+<br>
+
+<figure class="text-center">
+  <blockquote class="blockquote">
+    <p>Music Recommendation System</p>
+  </blockquote>
+  <figcaption class="blockquote-footer">
+    Project by <cite title="Source Title">Shrestha Gupta and Sourjobraato Banerjee</cite><br><br><br><br>
+      Hey choose your Favourite Genre !
+  </figcaption>
+</figure>
+<br>
+<form name="genre "action="/rating" method="POST">
+<div align="center">
+<select class="form-select" size="1" aria-label="size 3 select example" name="rating" onchange="location=this.value" style="width:200px;">
+  <option selected disabled="disabled">--Select One Genre--</option>
+  <option value="/rating?genre=pop">Pop</option>
+  <option value="/rating?genre=hip-hop">Hip-Hop</option>
+  <option value="/rating?genre=Rhythm and Blues">Rhythm & Blues</option>
+  <option value="/rating?genre=rock">Rock</option>
+  <option value="/rating?genre=jazz">Jazz</option>
+  <option value="/rating?genre=soul">Soul</option>
+  <option value="/rating?genre=edm">EDM</option>
+  <option value="/rating?genre=folk">Folk</option>
+  <option value="/rating?genre=alternative">Alternative</option>
+  <option value="/rating?genre=metal">Metal</option>
+  <option value="/rating?genre=punk">Punk</option>
+  <option value="/rating?genre=latin">Latin</option>
+  <option value="/rating?genre=hindustani">Hindustani</option>
+  <option value="/rating?genre=filmi">Filmi</option>
+</select></div>
+<br><br>
+
+</form>
+
+</body>
+</html>
